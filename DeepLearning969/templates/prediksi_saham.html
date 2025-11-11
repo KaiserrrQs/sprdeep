@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="content-container">
+    <h2>📈 Prediksi Harga Saham</h2>
+    <form method="POST" action="{{ url_for('prediksi_saham') }}">
+        <label for="symbol">Masukkan Kode Saham (misalnya: AAPL, GOOGL, TSLA):</label><br>
+        <input type="text" id="symbol" name="symbol" required><br><br>
+        <button type="submit">🔍 Prediksi</button>
+    </form>
+
+    {% if error %}
+        <p style="color:red;">{{ error }}</p>
+    {% endif %}
+
+    {% if hasil_prediksi %}
+        <div class="result-box">
+            <h3>📊 Hasil Prediksi Saham {{ symbol }}</h3>
+            <p><strong>💰 Harga Terakhir:</strong> {{ last_price }}</p>
+            <p><strong>📅 Prediksi Harga Besok:</strong> {{ hasil_prediksi }}</p>
+        </div>
+
+        {% if grafik %}
+        <div class="chart-box">
+            <h4>📉 Grafik Harga Saham {{ symbol }}</h4>
+            <img src="data:image/png;base64,{{ grafik }}" alt="Grafik saham">
+        </div>
+        {% endif %}
+    {% endif %}
+</div>
+{% endblock %}
