@@ -1,0 +1,173 @@
+/* RESET */
+body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9fafb;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* HEADER */
+header {
+    background-color: #2563eb;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    z-index: 10;
+}
+
+/* FOOTER */
+footer {
+    background-color: #2563eb;
+    color: white;
+    padding: 15px 0;
+    text-align: center;
+    margin-top: auto;
+}
+
+/* LAYOUT WRAPPER */
+.layout {
+    display: flex;
+    flex-grow: 1;
+    min-height: calc(100vh - 120px); /* sisa ruang di bawah header dan atas footer */
+}
+
+/* SIDEBAR */
+.sidebar {
+    background-color: #e0e7ff;
+    width: 240px;
+    padding: 20px;
+    box-sizing: border-box;
+    border-right: 2px solid #c7d2fe;
+    position: relative; /* bukan fixed agar tidak nabrak header/footer */
+}
+
+.sidebar nav a {
+    display: block;
+    color: #1e3a8a;
+    text-decoration: none;
+    margin: 12px 0;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.sidebar nav a:hover {
+    color: #4338ca;
+    transform: translateX(5px);
+}
+
+/* MAIN CONTENT */
+main {
+    flex: 1;
+    padding: 30px;
+    background-color: #f9fafb;
+    overflow-y: auto;
+}
+
+/* INDEX PAGE */
+.index-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.left-panel {
+    background: #eff6ff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    width: 70%;
+}
+
+.identitas {
+    margin-bottom: 20px;
+}
+
+.identitas p {
+    margin: 5px 0;
+}
+
+/* FORM PREDIKSI SAHAM & LAINNYA */
+.form-prediksi,
+form {
+    background: #f1f5f9;
+    padding: 20px;
+    border-radius: 12px;
+    width: 70%;
+    margin: 0 auto;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+form input {
+    width: 100%;
+    padding: 8px;
+    margin: 10px 0;
+}
+
+form button {
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #1e40af;
+}
+
+/* HASIL */
+.result-box {
+    text-align: center;
+    margin-top: 30px;
+    background: #f0f9ff;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.result-box img {
+    margin-top: 15px;
+    max-width: 90%;
+    border-radius: 10px;
+}
+
+form select {
+    width: 100%;
+    padding: 8px;
+    margin: 10px 0;
+    border-radius: 6px;
+    border: 1px solid #cbd5e1;
+}
+
+form input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #cbd5e1;
+}
+
+.truth-table {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.truth-table table {
+    margin: 0 auto;
+    border-collapse: collapse;
+    font-size: 16px;
+}
+
+.truth-table th {
+    background-color: #2563eb;
+    color: white;
+}
+
+.truth-table td, .truth-table th {
+    border: 1px solid #ccc;
+    padding: 6px 12px;
+}

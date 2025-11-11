@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="content-container">
+    <h2>🧮 Kalkulator Logika (0 / 1)</h2>
+
+    <form method="POST" action="{{ url_for('kalkulator') }}">
+        <label for="a">Masukkan Nilai A (0 atau 1):</label><br>
+        <input type="number" id="a" name="a" min="0" max="1" required><br><br>
+
+        <label for="b">Masukkan Nilai B (0 atau 1):</label><br>
+        <input type="number" id="b" name="b" min="0" max="1" required><br><br>
+
+        <label for="operasi">Pilih Operasi Logika:</label><br>
+        <select name="operasi" id="operasi" required>
+            <option value="AND">🔗 AND</option>
+            <option value="OR">🌀 OR</option>
+            <option value="XOR">⚡ XOR</option>
+            <option value="NOT">🚫 NOT (pada A)</option>
+        </select><br><br>
+
+        <button type="submit">🧩 Hitung</button>
+    </form>
+
+    {% if hasil is not none %}
+    <div class="result-box">
+        <h3>📘 Hasil:</h3>
+        <p><strong>Output:</strong> {{ hasil }}</p>
+    </div>
+    {% endif %}
+
+    {% if tabel_kebenaran %}
+    <div class="truth-table">
+        <h3>📊 Tabel Kebenaran untuk {{ operasi }}</h3>
+        <table border="1" cellpadding="8" cellspacing="0">
+            <thead>
+                <tr>
+                    {% if operasi != "NOT" %}
+                        <th>A</th>
+                        <th>B</th>
+                        <th>Hasil</th>
+                    {% else %}
+                        <th>A</th>
+                        <th>NOT A</th>
+                    {% endif %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in tabel_kebenaran %}
+                    <tr>
+                        {% for col in row %}
+                            <td>{{ col }}</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% endif %}
+</div>
+
+{% endblock %}

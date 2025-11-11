@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="content-container">
+    <h2>💬 Prediksi Kata (Bidirectional)</h2>
+
+    <form method="POST" action="{{ url_for('prediksi_kata') }}">
+        <label for="teks">Masukkan Sebuah Kalimat:</label><br>
+        <input type="text" id="teks" name="teks" required><br><br>
+
+        <button type="submit">✨ Prediksi</button>
+    </form>
+
+    {% if hasil %}
+    <div class="result-box">
+        <h3>🔮 Hasil Prediksi:</h3>
+        <p>{{ hasil }}</p>
+    </div>
+    {% endif %}
+</div>
+
+{% endblock %}

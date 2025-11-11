@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="index-container">
+    <div class="left-panel">
+        <h2>📚 Tugas Mata Kuliah Deep Learning</h2>
+        
+        <div class="identitas">
+            <p>👤 <strong>Nama:</strong> {{ nama }}</p>
+            <p>🆔 <strong>NPM:</strong> {{ npm }}</p>
+            <p>🏫 <strong>Kelas:</strong> {{ kelas }}</p>
+        </div>
+
+        <h3>🧾 Daftar Tugas:</h3>
+        <ul class="tugas-list">
+            {% for item in tugas %}
+            <li>👉 <a href="{{ item.url }}">{{ item.title }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+{% endblock %}
